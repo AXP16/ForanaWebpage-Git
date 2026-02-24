@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Villas Porto-Vecchio — Location Saisonnière de Prestige</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ivory: #f8f4ee;
+      --sand: #e8ddd0;
+      --stone: #c9b99a;
+      --navy: #1a2a3a;
+      --navy-light: #2c4155;
+      --terracotta: #c4714a;
+      --gold: #b8965a;
+      --text: #2e2e2e;
+      --text-light: #6b6259;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--ivory);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 4rem;
+      background: rgba(248, 244, 238, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 185, 154, 0.3);
+      transition: padding 0.3s ease;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--terracotta); font-style: italic; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terracotta); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1540541338537-1220059a3dcf?w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.05);
+      animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom { from { transform: scale(1.05); } to { transform: scale(1.12); } }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,42,58,0.62) 0%, rgba(26,42,58,0.25) 60%, rgba(196,113,74,0.15) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 5rem;
+      max-width: 780px;
+      animation: fadeUp 1.2s ease both;
+    }
+    @keyframes fadeUp { from { opacity:0; transform: translateY(40px); } to { opacity:1; transform: translateY(0); } }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--stone);
+      border: 1px solid rgba(201,185,154,0.6);
+      padding: 0.4rem 1.1rem;
+      margin-bottom: 1.8rem;
+      animation: fadeUp 1.2s 0.2s ease both;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 1.2s 0.35s ease both;
+    }
+    .hero h1 em { font-style: italic; color: var(--stone); }
+    .hero p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.82);
+      max-width: 500px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 1.2s 0.5s ease both;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      animation: fadeUp 1.2s 0.65s ease both;
+    }
+    .btn-primary {
+      background: var(--terracotta);
+      color: white;
+      padding: 0.95rem 2.4rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: #b05f38; transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.7);
+      color: white;
+      padding: 0.95rem 2.4rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s, border-color 0.3s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: fadeUp 1.2s 1s ease both;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine { 0%,100%{opacity:0.3;} 50%{opacity:1;} }
+
+    /* ── SECTION INTROS ── */
+    section { padding: 6rem 4rem; }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+    .section-title em { font-style: italic; color: var(--terracotta); }
+    .section-intro {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-light);
+      max-width: 600px;
+    }
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 2rem 0;
+    }
+
+    /* ── ABOUT STRIP ── */
+    .about {
+      background: var(--navy);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+    }
+    .about-text {
+      padding: 6rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .about-text .section-label { color: var(--stone); }
+    .about-text .section-title { color: var(--white); }
+    .about-text .section-intro { color: rgba(255,255,255,0.65); }
+    .about-text .divider { background: var(--terracotta); }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 3rem;
+    }
+    .stat {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 1.5rem 0;
+    }
+    .stat:nth-child(odd) { padding-right: 2rem; border-right: 1px solid rgba(255,255,255,0.12); }
+    .stat:nth-child(even) { padding-left: 2rem; }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--terracotta);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+    .about-image {
+      position: relative;
+      overflow: hidden;
+      min-height: 500px;
+    }
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .about-image:hover img { transform: scale(1.04); }
+
+    /* ── VILLAS ── */
+    #villas { padding: 6rem 4rem; }
+    .villas-header { text-align: center; margin-bottom: 5rem; }
+    .villas-header .section-intro { margin: 0 auto; }
+
+    .villa-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 6rem;
+      box-shadow: 0 30px 80px rgba(26,42,58,0.1);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .villa-card.visible { opacity: 1; transform: translateY(0); }
+    .villa-card:last-child { margin-bottom: 0; }
+    .villa-card.reverse { direction: rtl; }
+    .villa-card.reverse > * { direction: ltr; }
+
+    /* Gallery */
+    .villa-gallery {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      height: 100%;
+      min-height: 520px;
+      gap: 3px;
+    }
+    .gallery-main { grid-row: 1 / 3; overflow: hidden; }
+    .gallery-main img,
+    .gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .gallery-thumb { overflow: hidden; }
+    .gallery-main:hover img,
+    .gallery-thumb:hover img { transform: scale(1.05); }
+    .gallery-count {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(26,42,58,0.75);
+      color: white;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      padding: 0.4rem 0.9rem;
+      backdrop-filter: blur(6px);
+    }
+
+    /* Villa info */
+    .villa-info {
+      background: var(--white);
+      padding: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .villa-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--ivory);
+      padding: 0.4rem 1rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      border-left: 2px solid var(--terracotta);
+      margin-bottom: 1.5rem;
+      width: fit-content;
+    }
+    .villa-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .villa-sub {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.05em;
+    }
+    .villa-feats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem 2rem;
+      margin-bottom: 2rem;
+    }
+    .feat {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+    .feat-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+    .villa-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      border-top: 1px solid var(--sand);
+      padding-top: 1.5rem;
+    }
+    .villa-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-navy {
+      background: var(--navy);
+      color: white;
+      padding: 0.85rem 2rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn-navy:hover { background: var(--navy-light); }
+    .btn-ghost {
+      border: 1px solid var(--stone);
+      color: var(--text);
+      padding: 0.85rem 2rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .btn-ghost:hover { border-color: var(--navy); color: var(--navy); }
+
+    /* Stars */
+    .stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+
+    /* ── MAP / LOCATION ── */
+    .location {
+      background: var(--sand);
+      padding: 6rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .loc-list { margin-top: 2rem; list-style: none; }
+    .loc-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(26,42,58,0.1);
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .loc-list li:last-child { border-bottom: none; }
+    .loc-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .loc-map {
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(26,42,58,0.15);
+    }
+    .loc-map iframe {
+      width: 100%;
+      height: 420px;
+      border: none;
+      display: block;
+      filter: grayscale(100%) contrast(1.05) brightness(0.97);
+      transition: filter 0.4s ease;
+    }
+    .loc-map:hover iframe {
+      filter: grayscale(60%) contrast(1.02) brightness(1);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--navy);
+      padding: 7rem 4rem;
+      text-align: center;
+    }
+    #contact .section-label { color: var(--stone); }
+    #contact .section-title { color: white; margin: 0 auto 1rem; }
+    #contact .section-intro { color: rgba(255,255,255,0.6); margin: 0 auto 3.5rem; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      transition: background 0.3s;
+    }
+    .contact-card:hover { background: rgba(255,255,255,0.1); }
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(196,113,74,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--terracotta);
+    }
+    .contact-type {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+    .contact-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: white;
+    }
+    .contact-card a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+    .form-group:last-child { margin-bottom: 0; }
+    label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-align: left;
+    }
+    input, textarea, select {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.9rem 1.2rem;
+      color: white;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.3); }
+    input:focus, textarea:focus, select:focus { border-color: var(--terracotta); }
+    select option { background: var(--navy); }
+    textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+    .btn-send {
+      background: var(--terracotta);
+      color: white;
+      border: none;
+      padding: 1rem 3rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-send:hover { background: #b05f38; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0f1a24;
+      padding: 3rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .footer-brand span { color: var(--terracotta); font-style: italic; }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.05em;
+    }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--stone); }
+
+    /* ── MODAL LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.92);
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(6px);
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-inner {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+    }
+    .lightbox-inner img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -3rem;
+      right: 0;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .lightbox-close:hover { opacity: 1; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 1.2rem 2rem; }
+      .hero-content { padding: 0 2.5rem; }
+      section { padding: 5rem 2.5rem; }
+      .about { grid-template-columns: 1fr; }
+      .about-image { min-height: 350px; }
+      .villa-card, .villa-card.reverse { grid-template-columns: 1fr; direction: ltr; }
+      .gallery-grid { min-height: 320px; }
+      .location { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-grid { grid-template-columns: 1fr; max-width: 380px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+      .about-text { padding: 4rem 2.5rem; }
+      #contact, #villas, .location { padding: 5rem 2rem; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .villa-info { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-logo">Porto Vecchio <span>Villas</span></a>
+  <ul class="nav-links">
+    <li><a href="#villas">Nos Villas</a></li>
+    <li><a href="#location">Situation</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Porto-Vecchio · Corse du Sud</span>
+    <h1>Des villas d'exception<br><em>face à la mer</em></h1>
+    <p>Deux propriétés de prestige, piscine privée, front de mer — pour des vacances à la hauteur de la beauté de la Corse.</p>
+    <div class="hero-cta">
+      <a href="#villas" class="btn-primary">Découvrir les villas</a>
+      <a href="#contact" class="btn-outline">Nous contacter</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Découvrir</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="about">
+  <div class="about-text">
+    <span class="section-label">Notre engagement</span>
+    <h2 class="section-title">L'art de recevoir<br><em>en Corse</em></h2>
+    <div class="divider"></div>
+    <p class="section-intro">Situées à Porto-Vecchio, l'une des plus belles stations balnéaires de Méditerranée, nos deux villas vous invitent à vivre une expérience unique. Tout est pensé pour votre confort : équipements haut de gamme, piscines privées, proximité immédiate des plages et du centre-ville.</p>
+    <div class="about-stats">
+      <div class="stat">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Villas exclusives</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">4–6</div>
+        <div class="stat-label">Personnes par villa</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">4★</div>
+        <div class="stat-label">Classement meublé</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">Mer</div>
+        <div class="stat-label">Vue & accès direct</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-image">
+    <!-- REMPLACER PAR UNE PHOTO DE PORTO-VECCHIO / DE LA RÉGION -->
+    <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=900&q=80" alt="Golfe de Porto-Vecchio" />
+  </div>
+</div>
+
+<!-- VILLAS -->
+<section id="villas">
+  <div class="villas-header">
+    <span class="section-label">Nos propriétés</span>
+    <h2 class="section-title">Deux villas, un cadre <em>inoubliable</em></h2>
+    <div class="divider" style="margin: 1.5rem auto;"></div>
+    <p class="section-intro">Chaque villa possède son caractère propre, mais partage la même promesse : un séjour d'exception dans l'un des plus beaux golfs de Corse.</p>
+  </div>
+
+  <!-- VILLA 1 -->
+  <div class="villa-card" id="villa1">
+    <div class="villa-gallery">
+      <div class="gallery-grid">
+        <div class="gallery-main" onclick="openLightbox('https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=1200&q=80')">
+          <!-- REMPLACER PAR VOS PHOTOS DE LA VILLA 1 -->
+          <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=900&q=80" alt="Villa moderne en pierre — vue principale" />
+        </div>
+        <div class="gallery-thumb" onclick="openLightbox('https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800&q=80')">
+          <!-- REMPLACER PAR VOS PHOTOS DE LA VILLA 1 -->
+          <img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?w=600&q=80" alt="Piscine villa 1" />
+        </div>
+        <div class="gallery-thumb" onclick="openLightbox('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=800&q=80')">
+          <!-- REMPLACER PAR VOS PHOTOS DE LA VILLA 1 -->
+          <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=600&q=80" alt="Intérieur villa 1" />
+        </div>
+      </div>
+      <div class="gallery-count">📷 Voir les photos</div>
+    </div>
+    <div class="villa-info">
+      <div class="villa-badge">4 personnes · 4★ meublé</div>
+      <div class="stars">★★★★</div>
+      <h3 class="villa-name">Villa Moderne<br>en Pierre</h3>
+      <p class="villa-sub">Front de mer · Porto-Vecchio · Piscine privée</p>
+      <div class="villa-feats">
+        <div class="feat">
+          <svg class="feat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M2 9l20 0M2 15l20 0M12 3l0 18M3 3l18 18"/></svg>
+          2 chambres · 4 couchages
+        </div>
+        <div class="feat">
+          <svg class="feat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M3.5 18.5c2-2 5-3 8.5-3s6.5 1 8.5 3M12 3a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          Piscine privée
+        </div>
+        <div class="feat">
+          <svg class="feat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M3 12l9-9 9 9M5 10v9h4v-5h6v5h4v-9"/></svg>
+          Terrasse & jardin
+        </div>
+        <div class="feat">
+          <svg class="feat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25z"/></svg>
+          Climatisation
+        </div>
+        <div class="feat">
+          <svg class="feat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3z"/><path d="M12 8v4l3 3"/></svg>
+          WiFi haut débit
+        </div>
+        <div class="feat">
+          <svg class="feat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          Proche plages & centre
+        </div>
+      </div>
+      <p class="villa-desc">Cette élégante villa en pierre traditionnelle revisitée offre confort moderne et authenticité corse. En position privilégiée face à la mer, elle bénéficie d'une piscine privée sur sa terrasse ensoleillée, à quelques minutes à pied des plus belles plages du golfe et des commerces du centre-ville.</p>
+      <div class="villa-actions">
+        <a href="https://www.airbnb.fr/rooms/4046052" target="_blank" class="btn-navy">Voir sur Airbnb</a>
+        <a href="#contact" class="btn-ghost">Demander un devis</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- VILLA 2 -->
+  <div class="villa-card reverse" id="villa2">
+    <div class="villa-gallery">
+      <div class="gallery-grid">
+        <div class="gallery-main" onclick="openLightbox('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&q=80')">
+          <!-- REMPLACER PAR VOS PHOTOS DE LA VILLA 2 -->
+          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=900&q=80" alt="Villa vue mer panoramique — vue principale" />
+        </div>
+        <div class="gallery-thumb" onclick="openLightbox('https://images.unsplash.com/photo-1596436889106-be35e843f974?w=800&q=80')">
+          <!-- REMPLACER PAR VOS PHOTOS DE LA VILLA 2 -->
+          <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?w=600&q=80" alt="Vue mer golfe Villa 2" />
+        </div>
+        <div class="gallery-thumb" onclick="openLightbox('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80')">
+          <!-- REMPLACER PAR VOS PHOTOS DE LA VILLA 2 -->
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80" alt="Séjour villa 2" />
+        </div>
+      </div>
+      <div class="gallery-count">📷 Voir les photos</div>
+    </div>
+    <div class="villa-info">
+      <div class="villa-badge" style="color: var(--navy); border-left-color: var(--navy);">6 personnes · Vue panoramique</div>
+      <div class="stars">★★★★★</div>
+      <h3 class="villa-name">Villa Vue Mer<br>Panoramique</h3>
+      <p class="villa-sub">Golfe de Porto-Vecchio · Piscine privée · Grand espace</p>
+      <div class="villa-feats">
+        <div class="feat">
+          <svg class="feat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M2 9l20 0M2 15l20 0M12 3l0 18M3 3l18 18"/></svg>
+          3 chambres · 6 couchages
+        </div>
+        <div class="feat">
+          <svg class="feat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M3.5 18.5c2-2 5-3 8.5-3s6.5 1 8.5 3M12 3a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          Piscine privée
+        </div>
+        <div class="feat">
+          <svg class="feat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75"/></svg>
+          Vue mer panoramique
+        </div>
+        <div class="feat">
+          <svg class="feat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M12 3v1.5M12 19.5V21M4.22 4.22l1.06 1.06M18.72 18.72l1.06 1.06M3 12h1.5M19.5 12H21M4.22 19.78l1.06-1.06M18.72 5.28l1.06-1.06"/></svg>
+          Grand salon lumineux
+        </div>
+        <div class="feat">
+          <svg class="feat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25z"/></svg>
+          Climatisation
+        </div>
+        <div class="feat">
+          <svg class="feat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          Accès facile plages
+        </div>
+      </div>
+      <p class="villa-desc">Dominant le magnifique golfe de Porto-Vecchio, cette villa spacieuse offre une vue panoramique époustouflante sur la mer. Sa grande terrasse avec piscine privée invite à la détente face à l'horizon. Idéale pour les familles ou groupes d'amis souhaitant s'immerger dans la beauté sauvage de la Corse tout en restant proches des commodités.</p>
+      <div class="villa-actions">
+        <a href="https://www.airbnb.fr/rooms/5087046" target="_blank" class="btn-navy">Voir sur Airbnb</a>
+        <a href="#contact" class="btn-ghost">Demander un devis</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<div class="location" id="location">
+  <div>
+    <span class="section-label">Situation idéale</span>
+    <h2 class="section-title">Au cœur du <em>golfe</em></h2>
+    <div class="divider"></div>
+    <p class="section-intro">Porto-Vecchio, surnommée la « Petite Rome », est l'une des destinations les plus prisées de Méditerranée. Nos villas se trouvent dans une position de rêve, à deux pas de tout ce qui fait son charme.</p>
+    <ul class="loc-list">
+      <li><div class="loc-dot"></div><span><strong>Palombaggia & Santa Giulia</strong> — Les plus belles plages de Corse, à quelques minutes</span></li>
+      <li><div class="loc-dot"></div><span><strong>Centre-ville & Haute Ville</strong> — Restaurants, marchés, vieille ville à pied ou en voiture</span></li>
+      <li><div class="loc-dot"></div><span><strong>Porto-Vecchio marina</strong> — Sorties en bateau, plongée, sports nautiques</span></li>
+      <li><div class="loc-dot"></div><span><strong>Aéroport de Figari</strong> — À seulement 20 minutes des villas</span></li>
+      <li><div class="loc-dot"></div><span><strong>Commerce & services</strong> — Supermarchés, pharmacies, restaurants en proximité immédiate</span></li>
+    </ul>
+  </div>
+  <div class="loc-map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24635.19!2d9.2799!3d41.5912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d9609e1c6b7e99%3A0x53d6671a4e61ef59!2sPorto-Vecchio!5e0!3m2!1sfr!2sfr!4v1234567890"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <span class="section-label">Réservation & renseignements</span>
+  <h2 class="section-title" style="max-width:560px; margin:0 auto 0.5rem;">Parlons de votre<br><em>séjour en Corse</em></h2>
+  <div class="divider" style="margin: 1.5rem auto;"></div>
+  <p class="section-intro">Notre équipe est disponible pour répondre à toutes vos questions et vous aider à choisir la villa qui correspond parfaitement à votre projet de vacances.</p>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+        </svg>
+      </div>
+      <span class="contact-type">Email</span>
+      <span class="contact-value"><a href="mailto:povo2A@gmail.com">povo2A@gmail.com</a></span>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+        </svg>
+      </div>
+      <span class="contact-type">Téléphone</span>
+      <span class="contact-value"><a href="tel:0612345678">06 12 34 56 78</a></span>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="contact-form">
+    <form action="mailto:povo2A@gmail.com" method="POST" enctype="text/plain">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Nom & Prénom</label>
+          <input type="text" id="name" name="nom" placeholder="Marie Dupont" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="marie@exemple.fr" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="villa">Villa souhaitée</label>
+          <select id="villa" name="villa">
+            <option value="">Choisir une villa</option>
+            <option value="villa1">Villa Moderne en Pierre (4 pers.)</option>
+            <option value="villa2">Villa Vue Mer Panoramique (6 pers.)</option>
+            <option value="both">Les deux villas</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="phone">Téléphone</label>
+          <input type="tel" id="phone" name="telephone" placeholder="06 XX XX XX XX" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="checkin">Date d'arrivée</label>
+          <input type="date" id="checkin" name="arrivee" />
+        </div>
+        <div class="form-group">
+          <label for="checkout">Date de départ</label>
+          <input type="date" id="checkout" name="depart" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Décrivez votre projet de séjour, le nombre de personnes, vos questions…"></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn-send">Envoyer ma demande</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Porto Vecchio <span>Villas</span></div>
+  <div class="footer-links">
+    <a href="https://www.airbnb.fr/rooms/4046052" target="_blank">Villa 4 pers. sur Airbnb</a>
+    <a href="https://www.airbnb.fr/rooms/5087046" target="_blank">Villa 6 pers. sur Airbnb</a>
+    <a href="mailto:povo2A@gmail.com">Contact</a>
+  </div>
+  <div class="footer-copy">© 2025 · Porto-Vecchio, Corse du Sud · Tous droits réservés</div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightbox-img" src="" alt="Photo villa" />
+  </div>
+</div>
+
+<script>
+  // Lightbox
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.villa-card').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
